@@ -1,4 +1,4 @@
-# quiz-app-ts
+# quiz-app-ts - Created w/ Vite
 
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
