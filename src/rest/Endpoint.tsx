@@ -2,7 +2,7 @@
 
 const USERS_ENDPOINT =
     "https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users";
-    console.log('current users:', USERS_ENDPOINT);
+console.log('current users:', USERS_ENDPOINT);
 
 class UsersAPI {
     //Send Request

@@ -23,35 +23,34 @@ export default function App() {
   }
 
   //todo https://dev.to/will_yama/how-to-render-responses-96c
-  
+
   useEffect(() => {
     getScores();
   }, [])
   // console.log('first fetching scores:', APIData);
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
     console.log("onSubmit event", event);
 
     usersAPI.post([username, score]);
     setUserName("");
-    setScore("");
+    setScore(0);
     navigate('/scorelist');
   };
-  
 
-  function handleChange(event) {
+
+  function handleChange(event: { target: { name: any; value: any; }; }) {
     console.log(" handleChange name", event.target.name);
     console.log("userName handleChange value", event.target.value);
     setUserName(`${event.target.name}${event.target.value}`);
   }
 
 
-
   return (
     <>
       <NavBar />
-      <div className="wrapper container">        
+      <div className="wrapper container">
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/quiz' element={<Quiz
@@ -63,25 +62,25 @@ export default function App() {
             username={username}
             setUserName={setUserName}
             handleChange={handleChange}
-            />}
+          />}
           />
           <Route path='/scorelist' element={<ScoreList
             APIData={APIData}
             setAPIData={setAPIData}
-            />}
+          />}
           />
           <Route path='/quiz-retake' element={<QuizRetake
             APIData={APIData}
             getScores={getScores}
             setAPIData={setAPIData}
-            onSubmit={onSubmit} 
+            onSubmit={onSubmit}
             handleChange={handleChange}
             username={username}
             setUserName={setUserName}
             score={score}
             setScore={setScore}
-            />}
-          /> 
+          />}
+          />
         </Routes>
         <br />
       </div>
