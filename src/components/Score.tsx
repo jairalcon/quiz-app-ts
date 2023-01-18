@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Score({ APIData, score }) {
   let navigate = useNavigate();
 
-  const onDelete = async (id) => {
+  const onDelete = async (id: any) => {
     console.log('in delete function');
     try {
       const resp = await fetch(`https://631cbcad1b470e0e120961c6.mockapi.io/PromineoTechApi/users/${id}`, {
@@ -34,7 +34,7 @@ export default function Score({ APIData, score }) {
   };
 
   const handleEdit = () => {
-    navigate('/quiz-retake', {score: score})
+    navigate('/quiz-retake' /* ,  { score: score } */)
   }
 
 
@@ -45,9 +45,9 @@ export default function Score({ APIData, score }) {
         <td>{score.username}</td>
         <td>{score.score}</td>
         <td>
-          {hideEdit() && 
+          {hideEdit() &&
             <Button variant='warning' onClick={handleEdit}>Retake</Button>}
-          {hideEdit() && 
+          {hideEdit() &&
             <Button variant='danger' onClick={() => onDelete(score.id)}>Delete</Button>}
         </td>
       </tr>

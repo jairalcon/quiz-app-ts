@@ -15,7 +15,7 @@ import williams from './assets/williams.jpg';
 export default function Home() {
     const navigate = useNavigate();
 
-    const onSubmit = (event) => {
+    const onSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         // console.log("onSubmit event", event);
         navigate('/quiz');

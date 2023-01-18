@@ -10,7 +10,7 @@ export default function QuizRetake({ APIData, setAPIData, getScores }) {
 
     let navigate = useNavigate();
 
-    const handleClick = (isCorrect) => {
+    const handleClick = (isCorrect: boolean) => {
         if (isCorrect) {
             setScore(score + 1);
         }
